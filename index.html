@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA API System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./src/style.css">
+    <!-- Fontes do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">    
+</head>
+
+<body>
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg nav">
+            <a class="navbar-brand" href="#">NASA API System</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://localhost:5173/">APOD</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mt-5">
+        <section id="images" class="text-center">
+            <h1>Astronomy Picture of the Day</h1>
+            <h2 id="title" class="mb-3"></h2>
+            <span id="date" class="d-block mb-3"></span>
+            <p id="desc"></p>
+            <img id="image" src="" alt="Image Of Day" class="img-fluid rounded">
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <nav class="navbar navbar-expand-lg navbar-dark justify-content-center">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="http://localhost:5173/">APOD</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col">
+                    <p>Rafael Guedes</p>
+                    <a href="https://www.linkedin.com/" class="text-white me-3">LinkedIn</a> |
+                    <a href="https://github.com/" class="text-white">GitHub</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="./src/app.js"></script>
+</body>
+
+</html>
