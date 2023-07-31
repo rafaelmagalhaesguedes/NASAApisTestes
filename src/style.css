@@ -3,6 +3,13 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.header {
+    background-image: url('./image/starfield-banner.jpg');
+    background-size: contain;
+    background-repeat: repeat-x;
+    background-position: center;
+}
+
 .logo {
     width: 80px;
 }
@@ -34,6 +41,7 @@ body {
 
 #main {
     width: 70%;
+    padding-top: 20px;
 }
 
 #title {
@@ -57,4 +65,11 @@ body {
 
 h1 {
     font-family: 'Roboto Slab', serif;
+}
+
+footer {
+    background-image: url('./image/starfield-banner.jpg');
+    background-size: contain;
+    background-repeat: repeat-x;
+    background-position: center;
 }
