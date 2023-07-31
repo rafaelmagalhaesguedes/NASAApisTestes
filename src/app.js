@@ -1,19 +1,15 @@
-//
-//
-// Load Main
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Key
-    const apiKey = 'BfjznSZpe8iyba9VVhi1OHpRtih2HiLj6kWjMvOo ';
-  
-    // URL
-    const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
-  
+    const apiKey = 'BfjznSZpe8iyba9VVhi1OHpRtih2HiLj6kWjMvOo';
+
     // Get elements html
     const image = document.getElementById('image');
-    const title = document.getElementById('title');
+    const title = document.getElementById('title-data');
     const date = document.getElementById('date');
     const desc = document.getElementById('desc');
+    const asteroidsDataDiv = document.getElementById('asteroids-data');
 
+    // Format Date
     const formatDate = (isoDate) => {
         const date = new Date(isoDate);
         const day = date.getDate().toString().padStart(2, '0');
@@ -21,26 +17,107 @@ document.addEventListener('DOMContentLoaded', function() {
         const year = date.getFullYear().toString();
         return `${day}/${month}/${year}`;
     };
-  
-    // Função para carregar dados da API
-    const loadMainPage = () => {
-      fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-          console.log(data); // Dados do objeto
-          // Formata a data usando a função formatDate
-          const formattedDate = formatDate(data.date);
-          // Atualiza dados
-          title.innerText = data.title;
-          date.innerText = formattedDate;
-          desc.innerText = data.explanation;
-          image.src = data.url;
-        })
-        .catch(error => {
-          console.error('Erro ao carregar a imagem:', error);
-        });
+
+    // Get current date in the format yyyy-MM-dd
+    const getCurrentDate = () => {
+        const currentDate = new Date();
+        const year = currentDate.getFullYear();
+        const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+        const day = currentDate.getDate().toString().padStart(2, '0');
+        return `${year}-${month}-${day}`;
     };
-  
-    // Chama a função para carregar página Main
-    loadMainPage();
+
+    // Load Astronomy Picture of the Day (APOD)
+    const loadAstronomyPictureOfDay = () => {
+        const apiUrlApod = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
+        fetch(apiUrlApod)
+            .then(response => response.json())
+            .then(data => {
+                // Format date 
+                const formattedDate = formatDate(data.date);
+                // Show data
+                title.innerText = data.title;
+                date.innerHTML = '<strong>Information date: </strong>' + formattedDate;
+                desc.innerText = data.explanation;
+                image.src = data.url;
+            })
+            .catch(error => {
+                console.error('Erro ao carregar a imagem:', error);
+            });
+    };
+
+    // Load Asteroids Data
+    const loadAsteroidsData = () => {
+        const apiUrlAsteroids = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${getCurrentDate()}&api_key=${apiKey}`;
+        fetch(apiUrlAsteroids)
+            .then(response => response.json())
+            .then(data => {
+                const totalAsteroids = data.element_count;
+                asteroidsDataDiv.innerHTML = `
+                    <h5>Total asteroids detected in ${formatDate(getCurrentDate())}: 
+                    <strong>${totalAsteroids}</strong></h5>
+                `;
+                // Get all asteroids data
+                const allAsteroids = Object.keys(data.near_earth_objects)
+                  .map((date) => data.near_earth_objects[date]).flat();
+                // Show only the first batch of asteroids (e.g., 6 asteroids)
+                const batchSize = 4;
+                showAsteroids(allAsteroids.slice(0, batchSize));
+                // Add button to load more asteroids
+                const loadMoreButton = document.createElement('button');
+                loadMoreButton.innerText = 'Load More';
+                loadMoreButton.classList.add('btn', 'btn-primary', 'my-3');
+                loadMoreButton.addEventListener('click', () => {
+                    const currentShownAsteroids = document.querySelectorAll('.asteroid-card');
+                    const nextBatch = allAsteroids.slice(currentShownAsteroids.length, currentShownAsteroids.length + batchSize);
+                    showAsteroids(nextBatch);
+                    if (currentShownAsteroids.length + nextBatch.length === allAsteroids.length) {
+                        // Hide the button when all asteroids are shown
+                        loadMoreButton.style.display = 'none';
+                    }
+                });
+                asteroidsDataDiv.appendChild(loadMoreButton);
+            })
+            .catch(error => {
+                console.error('Erro ao carregar os dados dos asteroides:', error);
+            });
+    };
+
+    // Show asteroids in cards
+    const showAsteroids = (asteroids) => {
+        asteroidsDataDiv.innerHTML += `
+            <div class="row justify-content-between">
+                ${asteroids.map(asteroid => `
+                    <div class="col-md-6 mb-4 mt-4 asteroid-card">
+                        <div class="card">
+                            <div class="card-body">
+                                <p class="card-text"><strong>Name: </strong> 
+                                  ${asteroid.name}
+                                </p>
+                                <p class="card-text"><strong>Estimated Diameter (meters):</strong> 
+                                  ${asteroid.estimated_diameter.meters.estimated_diameter_min.toFixed(2)} - 
+                                  ${asteroid.estimated_diameter.meters.estimated_diameter_max.toFixed(2)}
+                                </p>
+                                <p class="card-text"><strong>Closest Approach Date:</strong> 
+                                  ${asteroid.close_approach_data[0].close_approach_date_full}
+                                </p>
+                                <p class="card-text"><strong>Relative Velocity (km/h):</strong> 
+                                  ${asteroid.close_approach_data[0].relative_velocity.kilometers_per_hour}
+                                </p>
+                                <p class="card-text"><strong>Miss Distance (kilometers):</strong> 
+                                  ${asteroid.close_approach_data[0].miss_distance.kilometers}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+    };
+
+    // Call the function to load the Astronomy Picture of the Day
+    loadAstronomyPictureOfDay();
+
+    // Call the function to load asteroid data when the page loads
+    loadAsteroidsData();
 });

@@ -1,13 +1,10 @@
 body {
     background-size: cover;
-    color: white;
     font-family: 'Roboto', sans-serif;
 }
 
 .nav {
     padding: 1rem;
-    background-color: #182d6b;
-    /* Cor de fundo azul escuro */
 }
 
 .navbar-nav .nav-link {
@@ -23,12 +20,25 @@ body {
     color: white;
 }
 
-#images {
-    margin-top: 100px;
+.nav-link {
+    color: white;
+}
+
+.nav-link:hover {
+    color: rgb(242, 235, 242);
+}
+
+#main {
+    width: 70%;
 }
 
 #title {
-    color: black;
+    font-family: 'Lilita One', sans-serif;
+    text-transform: uppercase;
+    font-size: 3.5rem;
+}
+
+#title-data {
     font-family: 'Roboto Slab', serif;
 }
 
@@ -38,10 +48,9 @@ body {
 }
 
 #desc {
-    color: black;
+    text-align: justify;
 }
 
 h1 {
-    color: #000;
     font-family: 'Roboto Slab', serif;
 }
