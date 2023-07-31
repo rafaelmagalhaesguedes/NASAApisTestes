@@ -75,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         // Hide the button when all asteroids are shown
                         loadMoreButton.style.display = 'none';
                     }
+                    asteroidsDataDiv.appendChild(loadMoreButton);
                 });
                 asteroidsDataDiv.appendChild(loadMoreButton);
             })
