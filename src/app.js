@@ -46,42 +46,64 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     };
 
-    // Load Asteroids Data
+    // Function to get API URL with current date
+    const getAsteroidsApiUrl = () => {
+        const currentDate = getCurrentDate();
+        return `https://api.nasa.gov/neo/rest/v1/feed?start_date=${currentDate}&api_key=${apiKey}`;
+    };
+
+    // Function to display the total number of detected asteroids
+    const showTotalAsteroids = (totalAsteroids) => {
+        asteroidsDataDiv.innerHTML = `
+        <h5>Total asteroids detected in ${formatDate(getCurrentDate())}: 
+        <strong>${totalAsteroids}</strong></h5>
+    `;
+    };
+
+    // Function to get all asteroids from a date object
+    const getAllAsteroids = (data) => {
+        return Object.keys(data.near_earth_objects)
+            .map((date) => data.near_earth_objects[date])
+            .flat();
+    };
+
+    // Function to load asteroid data
     const loadAsteroidsData = () => {
-        const apiUrlAsteroids = `https://api.nasa.gov/neo/rest/v1/feed?start_date=${getCurrentDate()}&api_key=${apiKey}`;
+        const apiUrlAsteroids = getAsteroidsApiUrl();
         fetch(apiUrlAsteroids)
             .then(response => response.json())
-            .then(data => {
+            .then((data) => {
                 const totalAsteroids = data.element_count;
-                asteroidsDataDiv.innerHTML = `
-                    <h5>Total asteroids detected in ${formatDate(getCurrentDate())}: 
-                    <strong>${totalAsteroids}</strong></h5>
-                `;
-                // Get all asteroids data
-                const allAsteroids = Object.keys(data.near_earth_objects)
-                  .map((date) => data.near_earth_objects[date]).flat();
-                // Show only the first batch of asteroids (e.g., 6 asteroids)
+                showTotalAsteroids(totalAsteroids);
+
+                const allAsteroids = getAllAsteroids(data);
                 const batchSize = 4;
                 showAsteroids(allAsteroids.slice(0, batchSize));
-                // Add button to load more asteroids
-                const loadMoreButton = document.createElement('button');
-                loadMoreButton.innerText = 'Load More';
-                loadMoreButton.classList.add('btn', 'btn-primary', 'my-3');
-                loadMoreButton.addEventListener('click', () => {
-                    const currentShownAsteroids = document.querySelectorAll('.asteroid-card');
-                    const nextBatch = allAsteroids.slice(currentShownAsteroids.length, currentShownAsteroids.length + batchSize);
-                    showAsteroids(nextBatch);
-                    if (currentShownAsteroids.length + nextBatch.length === allAsteroids.length) {
-                        // Hide the button when all asteroids are shown
-                        loadMoreButton.style.display = 'none';
-                    }
-                    asteroidsDataDiv.appendChild(loadMoreButton);
-                });
-                asteroidsDataDiv.appendChild(loadMoreButton);
+
+                addLoadMoreButton(allAsteroids, batchSize);
             })
-            .catch(error => {
+            .catch((error) => {
                 console.error('Erro ao carregar os dados dos asteroides:', error);
             });
+    }
+
+    // Function to add the "Load More" button and its click event
+    const addLoadMoreButton = (allAsteroids, batchSize) => {
+        const loadMoreButton = document.createElement('button');
+        loadMoreButton.innerText = 'Load More';
+        loadMoreButton.classList.add('btn', 'btn-primary', 'my-3');
+        loadMoreButton.addEventListener('click', () => {
+            const currentShownAsteroids = document.querySelectorAll('.asteroid-card');
+            const nextBatch = allAsteroids.slice(currentShownAsteroids.length, currentShownAsteroids.length + batchSize);
+            showAsteroids(nextBatch);
+
+            if (currentShownAsteroids.length + nextBatch.length === allAsteroids.length) {
+                // Hide the button when all asteroids are shown
+                loadMoreButton.style.display = 'none';
+            }
+            asteroidsDataDiv.appendChild(loadMoreButton);
+        });
+        asteroidsDataDiv.appendChild(loadMoreButton);
     };
 
     // Show asteroids in cards
@@ -121,4 +143,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Call the function to load asteroid data when the page loads
     loadAsteroidsData();
+
+    // Função para rolar a página para o topo
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+
+    // Adicione o evento de clique ao botão Back to Top
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    backToTopBtn.addEventListener('click', scrollToTop);
+
+    // Mostra ou oculta o botão Back to Top com base na posição de rolagem
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.style.display = 'block';
+        } else {
+            backToTopBtn.style.display = 'none';
+        }
+    });
+
 });

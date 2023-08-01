@@ -73,3 +73,66 @@ footer {
     background-repeat: repeat-x;
     background-position: center;
 }
+
+/* Estilos para o botão Back to Top */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2; /* Valor maior que o z-index do footer */
+}
+
+#arrow-top {
+    width: 40px;
+}
+
+
+/* Estilos para ocultar o botão Back to Top em dispositivos móveis */
+@media (max-width: 768px) {
+    /* Estilos para o header em dispositivos móveis */
+    .header {
+        background-position: center;
+    }
+    
+    .navbar {
+        z-index: 2;
+    }
+
+    /* Estilos para o título do APOD em dispositivos móveis */
+    #title {
+        font-size: 38px;
+    }
+
+    /* Estilos para o botão Back to Top em dispositivos móveis */
+    .back-to-top {
+        display: none;
+    }
+}
+
+/* Estilos para a seção APOD em dispositivos móveis */
+@media (max-width: 576px) {
+    /* Estilos para o título do APOD em dispositivos móveis */
+    #title {
+        font-size: 38px;
+    }
+}
+
+/* Estilos para a seção Asteroids em dispositivos móveis */
+@media (max-width: 576px) {
+    /* Estilos para o título da seção Asteroids em dispositivos móveis */
+    #asteroids h2 {
+        font-size: 24px;
+    }
+
+    /* Estilos para os cards dos asteroids em dispositivos móveis */
+    .asteroid-card {
+        width: 100%;
+    }
+}
