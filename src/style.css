@@ -41,7 +41,7 @@ body {
 
 #main {
     width: 70%;
-    padding-top: 20px;
+    margin-top: 30px;
 }
 
 #title {
@@ -96,7 +96,10 @@ footer {
 
 /* Estilos para ocultar o botão Back to Top em dispositivos móveis */
 @media (max-width: 768px) {
-    /* Estilos para o header em dispositivos móveis */
+    #main {
+        width: 100%;
+    }
+
     .header {
         background-position: center;
     }
@@ -121,6 +124,15 @@ footer {
     /* Estilos para o título do APOD em dispositivos móveis */
     #title {
         font-size: 38px;
+    }
+
+    #title-asteroids{
+        font-size: 38px;
+    }
+
+    #main {
+        width: 100%;
+        padding: 10px;
     }
 }
 

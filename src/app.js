@@ -55,8 +55,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Function to display the total number of detected asteroids
     const showTotalAsteroids = (totalAsteroids) => {
         asteroidsDataDiv.innerHTML = `
-        <h5>Total asteroids detected in ${formatDate(getCurrentDate())}: 
+        <h5>Total asteroids detected: 
         <strong>${totalAsteroids}</strong></h5>
+        <h5>Detection date: ${formatDate(getCurrentDate())}</h5>
     `;
     };
 
