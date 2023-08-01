@@ -35,10 +35,10 @@
                             <a class="nav-link" href="./mars-rover.html">Mars Rover</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="https://api.nasa.gov/">APIs NASA</a>
+                            <a class="nav-link" href="https://api.nasa.gov/">APIs NASA</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="https://www.nasa.gov/">NASA</a>
+                            <a class="nav-link" href="https://www.nasa.gov/"></a>
                         </li>
                     </ul>
                 </div>
@@ -46,18 +46,32 @@
         </nav>
     </header>
 
-    <div id="main" class="container">
-        <!-- Sessão APOD -->
-        <section id="apod" class="pt-3">
-            <!-- Conteúdo da seção APOD -->
-            <h1 id="title">Astronomy Picture of the Day</h1>
-            <h2 id="title-data" class="mb-3"></h2>
-            <span id="date" class="d-block mb-3"></span>
-            <p id="desc"></p>
-            <img id="image" src="" alt="Image Of Day" class="img-fluid rounded">
-        </section>
-
-    </div>
+    <main class="container mt-3 mb-3">
+        <h1 class="title">Mars Rover Images</h1>
+        <!-- Mars Rover Gallery -->
+        <div id="mars-rover-gallery" class="row"></div>
+        <!-- Load More Button -->
+        <button id="loadMoreButton" class="btn btn-primary my-3">Load More</button>
+    
+        <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="imageModalLabel">Mars Rover Image</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img id="modalImage" src="" class="img-fluid rounded" alt="Mars Rover Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </main>
+    
 
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3 mt-5">
@@ -76,10 +90,10 @@
                                 <a class="nav-link" href="./mars-rover.html">Mars Rover</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" target="_blank" href="https://api.nasa.gov/">APIs NASA</a>
+                                <a class="nav-link" href="https://api.nasa.gov/">APIs NASA</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" target="_blank" href="https://www.nasa.gov/">NASA</a>
+                                <a class="nav-link" href="https://www.nasa.gov/">NASA</a>
                             </li>
                         </ul>
                     </nav>
@@ -100,7 +114,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="./src/js/mars-rover.js"></script>
     <script src="./src/app.js"></script>
 </body>
-
 </html>

@@ -73,13 +73,18 @@ body {
     justify-content: space-between;
     align-items: center;
     align-content: center;
-
 }
 
 .img-thumbnail {
     width: 200px;
     padding: 5px;
     margin: 5px;
+}
+
+#asteroids-data {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
 }
 
 h1 {

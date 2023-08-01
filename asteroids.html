@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>NASA API System</title>
+    <title>NASA API System - Asteroids</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./src/style.css">
     <!-- Fontes do Google Fonts -->
@@ -35,10 +35,10 @@
                             <a class="nav-link" href="./mars-rover.html">Mars Rover</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="https://api.nasa.gov/">APIs NASA</a>
+                            <a class="nav-link" href="https://api.nasa.gov/">APIs NASA</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="https://www.nasa.gov/">NASA</a>
+                            <a class="nav-link" href="https://www.nasa.gov/">NASA</a>
                         </li>
                     </ul>
                 </div>
@@ -46,18 +46,17 @@
         </nav>
     </header>
 
-    <div id="main" class="container">
-        <!-- Sessão APOD -->
-        <section id="apod" class="pt-3">
-            <!-- Conteúdo da seção APOD -->
-            <h1 id="title">Astronomy Picture of the Day</h1>
-            <h2 id="title-data" class="mb-3"></h2>
-            <span id="date" class="d-block mb-3"></span>
-            <p id="desc"></p>
-            <img id="image" src="" alt="Image Of Day" class="img-fluid rounded">
+    <main class="container mt-5">
+        <section id="asteroids" class="mt-3">
+            <!-- Sessão Asteroids -->
+            <h1 id="title">Asteroids</h1>
+            <div id="asteroids-info">
+            </div>
+            <div id="asteroids-data">
+            </div>
         </section>
 
-    </div>
+    </main>
 
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-3 mt-5">
@@ -76,10 +75,10 @@
                                 <a class="nav-link" href="./mars-rover.html">Mars Rover</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" target="_blank" href="https://api.nasa.gov/">APIs NASA</a>
+                                <a class="nav-link" href="https://api.nasa.gov/">APIs NASA</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" target="_blank" href="https://www.nasa.gov/">NASA</a>
+                                <a class="nav-link" href="https://www.nasa.gov/">NASA</a>
                             </li>
                         </ul>
                     </nav>
@@ -100,7 +99,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="./src/app.js"></script>
+    <script src="./src/js/asteroids.js"></script>
 </body>
-
 </html>
