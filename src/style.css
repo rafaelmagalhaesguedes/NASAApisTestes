@@ -87,6 +87,20 @@ body {
     justify-content: space-between;
 }
 
+#earth-image {
+    width: 50%;
+}
+
+#earth-img {
+    width: 1110px;
+    height: auto;
+    margin-bottom: 50px;
+}
+
+#dateInput {
+    width: 100px;
+}
+
 h1 {
     font-family: 'Roboto Slab', serif;
 }
@@ -120,6 +134,11 @@ footer {
 
 /* Estilos para ocultar o botão Back to Top em dispositivos móveis */
 @media (max-width: 768px) {
+
+    .form-control {
+        width: 100%;
+    }
+
     #main {
         width: 100%;
     }
@@ -141,6 +160,12 @@ footer {
         width: 100%;
     }
 
+    #earth-img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 50px;
+    }
+
     /* Estilos para o botão Back to Top em dispositivos móveis */
     .back-to-top {
         display: none;
@@ -156,6 +181,11 @@ footer {
 
     #title-asteroids{
         font-size: 38px;
+    }
+
+    #earth-img {
+        width: 100%;
+        height: auto;
     }
 
     #main {
