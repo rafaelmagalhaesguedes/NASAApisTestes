@@ -139,11 +139,63 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
     };
 
+    const loadMarsRoverImages = () => {
+        const gallery = document.querySelector("#mars-rover-gallery");
+        const loadMoreBtn = document.querySelector("#loadMoreBtn");
+        let page = 1;
+        const imagesPerPage = 16;
+    
+        const loadImages = (page) => {
+            const apiUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2021-6-3&api_key=${apiKey}&page=${page}`;
+    
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then((data) => {
+                    console.log(data);
+                    if (data.photos && data.photos.length > 0) {
+                        const startIndex = (page - 1) * imagesPerPage;
+                        const endIndex = Math.min(startIndex + imagesPerPage, data.photos.length);
+                        for (let i = startIndex; i < endIndex; i++) {
+                            const photo = data.photos[i];
+                            const imgSrc = photo.img_src;
+                            const imgElement = document.createElement('img');
+                            imgElement.src = imgSrc;
+                            imgElement.classList.add('img-thumbnail', 'img-fluid');
+                            imgElement.setAttribute('data-toggle', 'modal');
+                            imgElement.setAttribute('data-target', '#imageModal');
+                            imgElement.addEventListener('click', () => {
+                                const modalImage = document.querySelector("#modalImage");
+                                modalImage.src = imgSrc;
+                            });
+                            gallery.appendChild(imgElement);
+                        }
+                    } else {
+                        console.error('Nenhuma imagem de Mars Rover encontrada.');
+                    }
+                })
+                .catch((error) => {
+                    console.error('Erro ao carregar os dados de Mars Rover:', error);
+                });
+        };
+    
+        // Load the initial images
+        loadImages(page);
+    
+        // Load more images when the "Load More" button is clicked
+        loadMoreBtn.addEventListener('click', () => {
+            page++;
+            loadImages(page);
+        });
+    };
+    
     // Call the function to load the Astronomy Picture of the Day
     loadAstronomyPictureOfDay();
 
     // Call the function to load asteroid data when the page loads
     loadAsteroidsData();
+
+    // Call the function to load mars rover images
+    loadMarsRoverImages();
 
     // Função para rolar a página para o topo
     function scrollToTop() {

@@ -41,7 +41,6 @@ body {
 
 #main {
     width: 70%;
-    margin-top: 30px;
 }
 
 #title {
@@ -61,6 +60,26 @@ body {
 
 #desc {
     text-align: justify;
+}
+
+.rover {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#mars-rover-gallery {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+
+}
+
+.img-thumbnail {
+    width: 200px;
+    padding: 5px;
+    margin: 5px;
 }
 
 h1 {
@@ -111,6 +130,10 @@ footer {
     /* Estilos para o título do APOD em dispositivos móveis */
     #title {
         font-size: 38px;
+    }
+
+    .img-thumbnail {
+        width: 100%;
     }
 
     /* Estilos para o botão Back to Top em dispositivos móveis */

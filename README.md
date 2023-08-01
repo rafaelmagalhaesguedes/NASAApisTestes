@@ -1,6 +1,6 @@
 # NASA API System
 
-Este é um sistema web desenvolvido em NodeJS e Bootstrap que utiliza as APIs da NASA para fornecer informações e imagens interessantes relacionadas ao espaço.
+Sistema web em desenvolvimento usando NodeJS e Bootstrap, utiliza as APIs da NASA para fornecer informações e imagens interessantes relacionadas ao espaço.
 
 Link do projeto ao vivo: https://rafaelmagalhaesguedes.github.io/nasaApis.io/
 

@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <header id="header" class="header fixed-top">
+    <header id="header" class="header">
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="#"><img src="./src/image/nasa-logo.svg" class="logo">NASA API System</a>
@@ -32,6 +32,9 @@
                             <a class="nav-link" href="#asteroids">Asteroids</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="#mars">Mars Rover</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="https://api.nasa.gov/">APIs NASA</a>
                         </li>
                         <li class="nav-item">
@@ -43,9 +46,9 @@
         </nav>
     </header>
 
-    <div id="main" class="container pt-5">
+    <div id="main" class="container">
         <!-- Sessão APOD -->
-        <section id="apod" class="pt-5">
+        <section id="apod" class="pt-3">
             <!-- Conteúdo da seção APOD -->
             <h1 id="title">Astronomy Picture of the Day</h1>
             <h2 id="title-data" class="mb-3"></h2>
@@ -60,6 +63,35 @@
             <div id="asteroids-data">
             </div>
         </section>
+
+        <!-- Sessão Mars -->
+        <div id="mars" class="container mt-5">
+            <h1 id="title" class="rover">Mars Rover Images</h1>    
+            <!-- Mars Rover Gallery -->
+            <div id="mars-rover-gallery" class="row"></div>
+            <!-- Load More Button -->
+            <div class="row justify-content-center">
+                <button id="loadMoreBtn" class="btn btn-primary mt-3">Load More</button>
+            </div>
+        </div>
+        
+        <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="imageModalLabel">Mars Rover Image</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img id="modalImage" src="" class="img-fluid rounded" alt="Mars Rover Image">
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- Footer -->
@@ -73,7 +105,10 @@
                                 <a class="nav-link" href="http://localhost:5173/">News</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="http://localhost:5173/">Asteroids</a>
+                                <a class="nav-link" href="#asteroids">Asteroids</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#mars">Mars Rover</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="https://api.nasa.gov/">APIs NASA</a>
@@ -93,8 +128,8 @@
     </footer>
 
    <!-- Adicione o botão Back to Top no final do body -->
-    <button id="backToTopBtn" class="back-to-top" title="to Top">
-        <img src="/src/image/arrow-top.png" id="arrow-top" alt="to Top">
+    <button id="backToTopBtn" class="back-to-top" title="Top">
+        <img src="/src/image/arrow-top.png" id="arrow-top" alt="Top">
     </button>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
