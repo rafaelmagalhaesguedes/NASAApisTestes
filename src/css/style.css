@@ -4,7 +4,7 @@ body {
 }
 
 .header {
-    background-image: url('./image/starfield-banner.jpg');
+    background-image: url('../image/starfield-banner.jpg');
     background-size: contain;
     background-repeat: repeat-x;
     background-position: center;
@@ -106,7 +106,7 @@ h1 {
 }
 
 footer {
-    background-image: url('./image/starfield-banner.jpg');
+    background-image: url('../image/starfield-banner.jpg');
     background-size: contain;
     background-repeat: repeat-x;
     background-position: center;
