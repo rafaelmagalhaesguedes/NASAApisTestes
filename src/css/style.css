@@ -1,42 +1,9 @@
 body {
-    background-size: cover;
     font-family: 'Roboto', sans-serif;
 }
 
-.header {
-    background-image: url('../image/starfield-banner.jpg');
-    background-size: contain;
-    background-repeat: repeat-x;
-    background-position: center;
-}
-
-.logo {
-    width: 80px;
-}
-
-.nav {
-    padding: 1rem;
-}
-
-.navbar-nav .nav-link {
-    color: white;
-    padding: 0.5rem 1rem;
-}
-
-.navbar-nav .nav-link:hover {
-    color: #f8f9fa;
-}
-
-.navbar-brand {
-    color: white;
-}
-
-.nav-link {
-    color: white;
-}
-
-.nav-link:hover {
-    color: rgb(242, 235, 242);
+h1 {
+    font-family: 'Roboto Slab', serif;
 }
 
 #main {
@@ -62,147 +29,9 @@ body {
     text-align: justify;
 }
 
-.rover {
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-
-#mars-rover-gallery {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
-    align-content: center;
-}
-
-.img-thumbnail {
-    width: 200px;
-    padding: 5px;
-    margin: 5px;
-}
-
-#asteroids-data {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-}
-
-#earth-image {
-    width: 50%;
-}
-
-#earth-img {
-    width: 1110px;
-    height: auto;
-    margin-bottom: 50px;
-}
-
-#dateInput {
-    width: 100px;
-}
-
-h1 {
-    font-family: 'Roboto Slab', serif;
-}
-
 footer {
-    background-image: url('../image/starfield-banner.jpg');
+    background-image: url('./src/assets/starfield-banner.jpg');
     background-size: contain;
     background-repeat: repeat-x;
     background-position: center;
-}
-
-/* Estilos para o botão Back to Top */
-.back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    display: none;
-    margin: 0;
-    padding: 0;
-    border: none;
-    font-size: 24px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 2; /* Valor maior que o z-index do footer */
-}
-
-#arrow-top {
-    width: 40px;
-}
-
-
-/* Estilos para ocultar o botão Back to Top em dispositivos móveis */
-@media (max-width: 768px) {
-
-    .form-control {
-        width: 100%;
-    }
-
-    #main {
-        width: 100%;
-    }
-
-    .header {
-        background-position: center;
-    }
-    
-    .navbar {
-        z-index: 2;
-    }
-
-    /* Estilos para o título do APOD em dispositivos móveis */
-    #title {
-        font-size: 38px;
-    }
-
-    .img-thumbnail {
-        width: 100%;
-    }
-
-    #earth-img {
-        width: 100%;
-        height: auto;
-        margin-bottom: 50px;
-    }
-
-    /* Estilos para o botão Back to Top em dispositivos móveis */
-    .back-to-top {
-        display: none;
-    }
-}
-
-/* Estilos para a seção APOD em dispositivos móveis */
-@media (max-width: 576px) {
-    /* Estilos para o título do APOD em dispositivos móveis */
-    #title {
-        font-size: 38px;
-    }
-
-    #title-asteroids{
-        font-size: 38px;
-    }
-
-    #earth-img {
-        width: 100%;
-        height: auto;
-    }
-
-    #main {
-        width: 100%;
-        padding: 10px;
-    }
-}
-
-/* Estilos para a seção Asteroids em dispositivos móveis */
-@media (max-width: 576px) {
-    /* Estilos para o título da seção Asteroids em dispositivos móveis */
-    #asteroids h2 {
-        font-size: 24px;
-    }
-
-    /* Estilos para os cards dos asteroids em dispositivos móveis */
-    .asteroid-card {
-        width: 100%;
-    }
 }
