@@ -1,46 +1,27 @@
-# NASA API System
+# React + TypeScript + Vite
 
-Sistema web em desenvolvimento usando NodeJS e Bootstrap, utiliza as APIs da NASA para fornecer informações e imagens interessantes relacionadas ao espaço.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Link do projeto ao vivo: https://rafaelmagalhaesguedes.github.io/nasaApis.io/
+Currently, two official plugins are available:
 
-## Funcionalidades
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-O sistema possui as seguintes funcionalidades:
- 
-- **Asteroids:** Exibe informações sobre os asteroides próximos à Terra.
-- **Earth Images:** Exibe imagens da Terra tiradas por satélites da NASA.
-- **Missions:** Lista missões espaciais históricas e informações sobre elas.
-- **Planets:** Fornece informações detalhadas sobre planetas do nosso sistema solar.
-- **Mars Rovers:** Exibe imagens e dados enviados pelos rovers em Marte.
-- **Telescope Images:** Mostra imagens astronômicas capturadas por telescópios espaciais.
+## Expanding the ESLint configuration
 
-## Como Executar
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-1. Certifique-se de ter o NodeJS instalado em sua máquina.
-2. Clone este repositório para o seu computador.
-3. Navegue até a pasta do projeto e instale as dependências usando o comando: `npm install`.
-4. Renomeie o arquivo `.env.example` para `.env` e insira a sua chave de API da NASA no campo `API_KEY`.
-5. Inicie o servidor com o comando: `npm start`.
-6. Acesse o sistema em seu navegador através do endereço: `http://localhost:3000`.
+- Configure the top-level `parserOptions` property like this:
 
-## Tecnologias Utilizadas
+```js
+   parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+   },
+```
 
-- NodeJS
-- Express
-- Bootstrap 5
-- JavaScript (ES6)
-- HTML5
-- CSS3
-
-## Contribuição
-
-Contribuições são bem-vindas! Sinta-se à vontade para abrir um pull request para correções, melhorias ou adição de novas funcionalidades.
-
-## Autor
-
-Este sistema foi desenvolvido por Rafael Magalhães Guedes (https://github.com/rafaelmagalhaesguedes).
-
-## Licença
-
-Este projeto é livre.
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
