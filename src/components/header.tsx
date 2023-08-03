@@ -3,7 +3,7 @@ import React from 'react';
 const Header: React.FC = () => {
     return (
         <header id="header" className="header">
-            <nav className="navbar navbar-expand-lg">
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
                 <div className="container">
                     <a className="navbar-brand" href="./">
                         <img src="../src/assets/nasa-logo.svg" className="logo" alt="NASA Logo" />
