@@ -1,7 +1,5 @@
 # NASA API System
 
-![NASA API System Logo](./src/image/nasa-logo.svg)
-
 The NASA API System is a web application that leverages the NASA APIs to provide information and images related to space, astronomy, and science. It offers various functionalities to explore the universe and access valuable data collected by NASA.
 
 ## Table of Contents
@@ -28,10 +26,6 @@ The NASA API System is a user-friendly web application designed to provide users
 - Asteroids: Get information about asteroids approaching Earth based on their approaching date.
 - Mars Rover: Explore images captured by NASA's Mars rover.
 - Earth Images: View captivating images of Earth taken by the Landsat 8 satellite.
-
-## Demo
-
-![NASA API System Demo](./src/image/demo.gif)
 
 ## Technologies Used
 
