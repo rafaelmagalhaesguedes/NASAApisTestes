@@ -6,7 +6,7 @@ const Header: React.FC = () => {
             <nav className="navbar navbar-expand-lg">
                 <div className="container">
                     <a className="navbar-brand" href="./">
-                        <img src="./src/assets/nasa-logo.svg" className="logo" alt="NASA Logo" />
+                        <img src="../src/assets/nasa-logo.svg" className="logo" alt="NASA Logo" />
                         NASA API System
                     </a>
                     <button
@@ -19,7 +19,7 @@ const Header: React.FC = () => {
                         aria-label="Toggle navigation"
                     >
                         <span className="navbar-toggler-icon">
-                            <img src="./src/assets/menu.png" width="50px" alt="Menu Icon" />
+                            <img src="../src/assets/menu.png" width="50px" alt="Menu Icon" />
                         </span>
                     </button>
                     <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
