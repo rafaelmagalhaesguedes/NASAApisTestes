@@ -2,7 +2,7 @@
 
 /* Set a background image for the header */
 .header {
-    background-image: url('./src/assets/starfield-banner.jpg');
+    background-image: url('../src/assets/starfield-banner.jpg');
     background-size: contain;
     background-repeat: repeat-x;
     background-position: center;
