@@ -14,21 +14,6 @@ const Footer: React.FC = () => {
                                     </a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="./asteroids.html">
-                                        Asteroids
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="./mars-rover.html">
-                                        Mars Rover
-                                    </a>
-                                </li>
-                                <li className="nav-item">
-                                    <a className="nav-link" href="./earth-imagery.html">
-                                        Earth Images
-                                    </a>
-                                </li>
-                                <li className="nav-item">
                                     <a className="nav-link" target="_blank" href="https://api.nasa.gov/">
                                         APIs NASA
                                     </a>

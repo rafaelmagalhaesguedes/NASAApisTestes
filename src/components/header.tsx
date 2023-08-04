@@ -1,12 +1,13 @@
 import React from 'react';
+import Logo from '../assets/nasa-logo.svg';
 
 const Header: React.FC = () => {
     return (
-        <header id="header" className="header bg-dark text-white text-center">
+        <header className="bg-dark text-white text-center header">
             <nav className="navbar navbar-expand-lg">
                 <div className="container">
                     <a className="navbar-brand" href="./">
-                        <img src="src/assets/nasa-logo.svg" className="logo" alt="NASA Logo" />
+                        <img src={ Logo } className="logo" alt="NASA Logo" />
                         NASA API System
                     </a>
                     <button
@@ -27,21 +28,6 @@ const Header: React.FC = () => {
                             <li className="nav-item">
                                 <a className="nav-link" href="./">
                                     News
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="./asteroids.html">
-                                    Asteroids
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="./mars-rover.html">
-                                    Mars Rover
-                                </a>
-                            </li>
-                            <li className="nav-item">
-                                <a className="nav-link" href="./earth-imagery.html">
-                                    Earth Images
                                 </a>
                             </li>
                             <li className="nav-item">
